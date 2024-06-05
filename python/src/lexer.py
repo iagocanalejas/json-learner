@@ -27,8 +27,7 @@ def lex_string(string):
     for c in string:
         if c == JSON_QUOTE:
             return json_string, string[len(json_string) + 1 :]
-        else:
-            json_string += c
+        json_string += c
 
     raise Exception("Expected end-of-string quote")
 

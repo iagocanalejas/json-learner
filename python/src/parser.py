@@ -27,6 +27,7 @@ def parse_array(tokens):
         else:
             tokens = tokens[1:]
 
+
 def parse_object(tokens):
     json_object = {}
 
@@ -42,7 +43,7 @@ def parse_object(tokens):
             raise Exception("Expected string key, got: {}".format(json_key))
 
         if tokens[0] != JSON_COLON:
-            raise Exception("Expected colon after key in object, got: {}".format(t))
+            raise Exception("Expected colon after key in object, got: {}".format(tokens[0]))
 
         json_value, tokens = parse(tokens[1:])
 
@@ -55,6 +56,7 @@ def parse_object(tokens):
             raise Exception("Expected comma after pair in object, got: {}".format(t))
 
         tokens = tokens[1:]
+
 
 def parse(tokens, is_root=False):
     t = tokens[0]
